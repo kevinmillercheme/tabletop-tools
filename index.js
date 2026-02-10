@@ -8,35 +8,35 @@
 
 // I felt using console to check functions was effective but wanted to integrate prompts and user input for more practice with them //
 
-let spellInput = prompt(`Does the wizard have the spell prepared?
-1. Yes
-2. No`);
+// let spellInput = prompt(`Does the wizard have the spell prepared?
+// 1. Yes
+// 2. No`);
 
-let spellPrepped = Number(spellInput); // The prompt requests the user to input an integer value relating to Yes or No, essentially relating to the boolean true or false
-let isSpellPrepared = []; // Initializing one of the arguments outside all functions and nested loops, to be filled, so it can be accessed later when the function is called
-let hasScroll = []; // Initializing the other argument, to be filled later from the validation sequencing
+// let spellPrepped = Number(spellInput); // The prompt requests the user to input an integer value relating to Yes or No, essentially relating to the boolean true or false
+// let isSpellPrepared = []; // Initializing one of the arguments outside all functions and nested loops, to be filled, so it can be accessed later when the function is called
+// let hasScroll = []; // Initializing the other argument, to be filled later from the validation sequencing
 
-if (spellPrepped === 1) { //
-  isSpellPrepared = spellPrepped;
-  console.log(isSpellPrepared);
-} else if (spellPrepped === 2) {
-  scrollInput = prompt(`Does the wizard have a scroll?
-1. Yes
-2. No`);
+// if (spellPrepped === 1) { //
+//   isSpellPrepared = spellPrepped;
+//   console.log(isSpellPrepared);
+// } else if (spellPrepped === 2) {
+//   scrollInput = prompt(`Does the wizard have a scroll?
+// 1. Yes
+// 2. No`);
 
-    let scrollHad = Number(scrollInput);
+//     let scrollHad = Number(scrollInput);
 
-    if (scrollHad === 1) {
-      hasScroll = scrollHad;
-      console.log(hasScroll);
-    } else if (scrollHad === 2) {
-      alert("Then no spell can be cast...");
-    } else {
-      alert("Enter 1 or 2");
-    }
-} else {
-  alert("Enter 1 or 2");
-}
+//     if (scrollHad === 1) {
+//       hasScroll = scrollHad;
+//       console.log(hasScroll);
+//     } else if (scrollHad === 2) {
+//       alert("Then no spell can be cast...");
+//     } else {
+//       alert("Enter 1 or 2");
+//     }
+// } else {
+//   alert("Enter 1 or 2");
+// }
 
 function canCastSpell(isSpellPrepared, hasScroll) {
   if (isSpellPrepared === 1) {
@@ -51,7 +51,7 @@ function canCastSpell(isSpellPrepared, hasScroll) {
   }
 }
 
-canCastSpell(isSpellPrepared, hasScroll);
+// canCastSpell(isSpellPrepared, hasScroll);
 
 /////////////////////////////////////////////////////////////////
 // The rest will not use prompt / alert to keep the file small //
@@ -110,8 +110,13 @@ function doesStrikeHit(attack, ac) {
  * @param {number} ac - the armor class to beat
  * @returns {boolean} whether the strike is a critical hit
  */
+
 function doesStrikeCrit(attack, ac) {
-  // TODO
+  if (attack >= ac+10) {
+    console.log("Critical Hit! ", true);
+  } else {
+    console.log("Not a crit hit.", false);
+  }
 }
 
 /**
