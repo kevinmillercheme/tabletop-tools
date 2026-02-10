@@ -275,9 +275,45 @@ function getRemainingHp(maxHp, currentHp, damage) {
  * @param {string} vision - vision type: "average", "low-light", or "dark"
  * @returns {boolean} whether the creature can see
  */
+
 function canSee(light, vision) {
-  // TODO
+  if (light === "bright") {
+    if (vision === "average") {
+      console.log("Average vision can see: ", true);
+      return true;
+    } else if (vision === "low-light") {
+      console.log("Low-light vision can see: ", true);
+      return true;
+    } else if (vision === "dark") {
+      console.log("Dark vision can see: ", true);
+      return true;
+    }
+  } else if (light === "dim") {
+      if (vision === "average") {
+        console.log("Average vision can see: ", false);
+        return false;
+      } else if (vision === "low-light") {
+        console.log("Low-light vision can see: ", true);
+        return true;
+      } else if (vision === "dark") {
+        console.log("Dark vision can see: ", true);
+        return true;
+      }
+  } else if (light === "dark") {
+      if (vision === "average") {
+        console.log("Average vision can see: ", false);
+        return false;
+      } else if (vision === "low-light") {
+        console.log("Low-light vision can see: ", false);
+        return true;
+      } else if (vision === "dark") {
+        console.log("Dark vision can see: ", true);
+        return true;
+      }
+  }
 }
+
+/////////////////////////////////////////////////////////////////
 
 /**
  * A strike deals damage if it hits, unless the strike is a critical hit,
