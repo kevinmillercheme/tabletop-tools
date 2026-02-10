@@ -6,15 +6,17 @@
  * @returns {boolean} whether the wizard can cast the spell
  */
 
+// I felt using console to check functions was effective but wanted to integrate prompts and user input for more practice with them //
+
 let spellInput = prompt(`Does the wizard have the spell prepared?
 1. Yes
 2. No`);
 
-let spellPrepped = Number(spellInput);
-let isSpellPrepared = [];
-let hasScroll = [];
+let spellPrepped = Number(spellInput); // The prompt requests the user to input an integer value relating to Yes or No, essentially relating to the boolean true or false
+let isSpellPrepared = []; // Initializing one of the arguments outside all functions and nested loops, to be filled, so it can be accessed later when the function is called
+let hasScroll = []; // Initializing the other argument, to be filled later from the validation sequencing
 
-if (spellPrepped === 1) {
+if (spellPrepped === 1) { //
   isSpellPrepared = spellPrepped;
   console.log(isSpellPrepared);
 } else if (spellPrepped === 2) {
@@ -51,7 +53,9 @@ function canCastSpell(isSpellPrepared, hasScroll) {
 
 canCastSpell(isSpellPrepared, hasScroll);
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+// The rest will not use prompt / alert to keep the file small //
+/////////////////////////////////////////////////////////////////
 
 /**
  * A creature is hidden from an observer if it is actively hiding
@@ -60,9 +64,22 @@ canCastSpell(isSpellPrepared, hasScroll);
  * @param {boolean} aware - whether the observer is aware of the creature
  * @returns {boolean} whether the creature is hidden from the observer
  */
+
+
 function isHidden(hiding, aware) {
-  // TODO
+  if (hiding === true) {
+    console.log("Creature is hiding: ", true);
+    return true;
+  } else if (hiding === false && aware === false) {
+    console.log("Observer is NOT aware of creature: ", true)
+    return true;
+  } else {
+    console.log("Creature is hidden from observer: ", false);
+    return false;
+  }
 }
+
+/////////////////////////////////////////////////////////////////
 
 /**
  * A strike hits if the attack value is greater than or equal
@@ -71,9 +88,20 @@ function isHidden(hiding, aware) {
  * @param {number} ac - the armor class to beat
  * @returns {boolean} whether the strike hits
  */
+
 function doesStrikeHit(attack, ac) {
-  // TODO
+  if (attack >= ac) {
+    console.log("Attack stronger than Armor Class, strike hits: ", true);
+    return true;
+  } else if (attack < ac) {
+    console.log("Attack weaker than Armor Class, strike misses: ", false)
+    return false
+  } else {
+    console.log("Enter proper number values")
+  }
 }
+
+/////////////////////////////////////////////////////////////////
 
 /**
  * A strike is a critical hit if the attack value is at least
