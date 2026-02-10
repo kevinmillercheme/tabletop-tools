@@ -152,6 +152,8 @@ function heal(maxHp, currentHp, healAmount) {
   }
 }
 
+/////////////////////////////////////////////////////////////////
+
 /**
  * When a character uses a skill they have proficiency in,
  * they get to add a bonus to their attempt.
@@ -169,7 +171,33 @@ function heal(maxHp, currentHp, healAmount) {
  * @returns {number} the character's proficiency bonus
  */
 function getProficiencyBonus(level, rank) {
-  // TODO
+  if (rank === "---") {
+    console.log("Rank: ", rank)
+    console.log("Bonus: ", "---");
+    return "---";
+  } else if (rank === "untrained") {
+    console.log("Rank: ", rank)
+    console.log("Bonus: ", 0);
+    return 0;
+  } else if (rank === "trained") {
+    console.log("Rank: ", rank);
+    console.log("Bonus: ", level+2);
+    return (level+2);
+  } else if (rank === "expert") {
+    console.log("Rank: ", rank);
+    console.log("Bonus: ", level+4);
+    return (level+4);
+  } else if (rank === "master") {
+    console.log("Rank: ", rank);
+    console.log("Bonus: ", level+6);
+    return (level+6);
+  } else if (rank === "legendary") {
+    console.log("Rank: ", rank);
+    console.log("Bonus: ", level+8);
+    return (level+8);
+  } else {
+    console.log("Enter proper rank");
+  }
 }
 
 /**
