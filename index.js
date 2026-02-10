@@ -114,10 +114,14 @@ function doesStrikeHit(attack, ac) {
 function doesStrikeCrit(attack, ac) {
   if (attack >= ac+10) {
     console.log("Critical Hit! ", true);
+    return true;
   } else {
     console.log("Not a crit hit.", false);
+    return false;
   }
 }
+
+/////////////////////////////////////////////////////////////////
 
 /**
  * A creature can restore hit points (HP) by healing,
@@ -127,8 +131,25 @@ function doesStrikeCrit(attack, ac) {
  * @param {number} healAmount - amount to heal
  * @returns {number} total hit points after healing
  */
+
 function heal(maxHp, currentHp, healAmount) {
-  // TODO
+
+  if (currentHp < maxHp) {
+    console.log("Creature is healing...", true);
+    console.log("Current HP: ", currentHp);
+    console.log("Heal amount: ", healAmount);
+    console.log("After healing: ", (currentHp + healAmount));
+    return true;
+  } else if (currentHp === maxHp) {
+    console.log("Creature is fully healed!", true);
+    console.log("Current HP: ", maxHp);
+    console.log("No further healing.");
+    return true;
+  } else if (currentHp > maxHp) {
+    console.log("Creature stats entered incorrectly");
+  } else {
+    console.log("Enter creatures full stats");
+  }
 }
 
 /**
