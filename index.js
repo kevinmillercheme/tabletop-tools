@@ -240,9 +240,32 @@ function getCoverBonus(behindObstacle, takingCover) {
  * @returns {number} 0 if the creature's HP drops to 0 or below
  * @returns {number} the creature's remaining HP after taking damage
  */
-function getRemainingHp(maxHp, currentHp, damage) {
-  // TODO
+
+function getRemainingHp(maxHp, currentHp, damage) {  
+  if (damage >= 2*maxHp) {
+    console.log("Creature just got smoked!");
+    console.log("Current HP: ", -1);
+    return -1;
+  } else if (currentHp <= 0) {
+    console.log("Creature has passed away");
+    console.log("Current HP: ", 0);
+    return 0;
+  } else {
+    let postDamageHp = currentHp - damage;
+    if (postDamageHp <= 0) {
+      console.log("Creature has passed away. Current HP: ", postDamageHp);
+      return 0;
+    } else { 
+    console.log("Max HP: ", maxHp);
+    console.log("Current HP: ", currentHp);
+    console.log("Damage Taken: ", damage);
+    console.log("HP After Damage: ", postDamageHp);
+    return (currentHp - damage);
+    }
+  }
 }
+
+/////////////////////////////////////////////////////////////////
 
 /**
  * All creatures can see in bright light.
