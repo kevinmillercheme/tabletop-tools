@@ -91,13 +91,13 @@ function isHidden(hiding, aware) {
 
 function doesStrikeHit(attack, ac) {
   if (attack >= ac) {
-    console.log("Attack stronger than Armor Class, strike hits: ", true);
+     console.log("Attack stronger than Armor Class, strike hits: ", true);
     return true;
   } else if (attack < ac) {
-    console.log("Attack weaker than Armor Class, strike misses: ", false)
+     console.log("Attack weaker than Armor Class, strike misses: ", false)
     return false
   } else {
-    console.log("Enter proper number values")
+     console.log("Enter proper number values")
   }
 }
 
@@ -113,10 +113,10 @@ function doesStrikeHit(attack, ac) {
 
 function doesStrikeCrit(attack, ac) {
   if (attack >= ac+10) {
-    console.log("Critical Hit! ", true);
+     console.log("Critical Hit! ", true);
     return true;
   } else {
-    console.log("Not a crit hit.", false);
+     console.log("Not a crit hit.", false);
     return false;
   }
 }
@@ -325,6 +325,22 @@ function canSee(light, vision) {
  * @param {number} damage - damage on a normal hit
  * @returns {number} damage dealt by the strike
  */
+
 function getStrikeDamage(attack, ac, damage) {
-  // TODO
+  // storing 2 previous functions outputs as constant variables to then satisfy if-else loops to avoid repeated calls //
+  const hit = doesStrikeHit(attack, ac);
+  const crit = doesStrikeCrit(attack, ac);
+
+  if (hit && crit) {
+    critDamage = 2*damage;
+    console.log("Critical Hit Damage: ", critDamage);
+    return critDamage;
+  } else if (hit && !crit) {
+    console.log("Hit Damage: ", damage);
+    return damage;
+  } else if (!hit && !crit) {
+    console.log("Damage: ", 0);
+  } else {
+    console.log("Enter proper parameters");
+  }
 }
