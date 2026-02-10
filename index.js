@@ -5,9 +5,53 @@
  * @param {boolean} hasScroll - whether the wizard has a scroll of the spell
  * @returns {boolean} whether the wizard can cast the spell
  */
-function canCastSpell(isSpellPrepared, hasScroll) {
-  // TODO
+
+let spellInput = prompt(`Does the wizard have the spell prepared?
+1. Yes
+2. No`);
+
+let spellPrepped = Number(spellInput);
+let isSpellPrepared = [];
+let hasScroll = [];
+
+if (spellPrepped === 1) {
+  isSpellPrepared = spellPrepped;
+  console.log(isSpellPrepared);
+} else if (spellPrepped === 2) {
+  scrollInput = prompt(`Does the wizard have a scroll?
+1. Yes
+2. No`);
+
+    let scrollHad = Number(scrollInput);
+
+    if (scrollHad === 1) {
+      hasScroll = scrollHad;
+      console.log(hasScroll);
+    } else if (scrollHad === 2) {
+      alert("Then no spell can be cast...");
+    } else {
+      alert("Enter 1 or 2");
+    }
+} else {
+  alert("Enter 1 or 2");
 }
+
+function canCastSpell(isSpellPrepared, hasScroll) {
+  if (isSpellPrepared === 1) {
+    console.log("A spell can be cast: ", true)
+    return true;
+  } else if (hasScroll === 1) {
+    console.log("A spell can be cast: ", true)
+    return true;
+  } else {
+    console.log("A spell can be cast: ", false)
+    return false;
+  }
+}
+
+canCastSpell(isSpellPrepared, hasScroll);
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /**
  * A creature is hidden from an observer if it is actively hiding
