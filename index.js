@@ -200,6 +200,8 @@ function getProficiencyBonus(level, rank) {
   }
 }
 
+/////////////////////////////////////////////////////////////////
+
 /**
  * A creature can get a bonus to its armor class (AC) by taking cover.
  * If the creature is behind an obstacle, it gets a +2 bonus to its AC,
@@ -210,9 +212,21 @@ function getProficiencyBonus(level, rank) {
  * @param {boolean} takingCover - whether the creature is actively taking cover
  * @returns {number} the cover bonus to AC
  */
+
 function getCoverBonus(behindObstacle, takingCover) {
-  // TODO
+  if (behindObstacle === true && takingCover === false) {
+    console.log("Behind an obstacle but not taking cover, added AC bonus: ", 2);
+    return 2;
+  } else if (behindObstacle === true && takingCover === true) {
+    console.log("Taking cover behind an obstacle, added AC bonus: ", 4);
+    return 4;
+  } else {
+    console.log("No AC bonus, creature is not taking cover behind an obstacle.");
+    return 0;
+  }
 }
+
+/////////////////////////////////////////////////////////////////
 
 /**
  * A creature's current hit points (HP) is reduced by taking damage.
